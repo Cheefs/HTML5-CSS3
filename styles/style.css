@@ -40,7 +40,7 @@ height: 100px;
     margin: 0 auto;
 }
 
-.header-left a >.brand-name {
+ .brand-name {
     font-size: 27px;
     text-transform: uppercase;
     font-family: 'Lato', sans-serif;
@@ -49,7 +49,7 @@ height: 100px;
     margin-left: 13px;
 
 }
-.header-left a >.brand-name >span {
+.brand-name >span {
     color: #f16d7f;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
@@ -493,4 +493,88 @@ font-weight: 500;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.35px;
+}
+.promo-bottom {
+    height: 458px;
+}
+
+/* .promo-bottom> .container{
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+} */
+
+.promo-bottom .container .about {
+    width: 438px;
+    height: 260px;
+    margin-right: 64px;
+    margin-top: 109px;
+}
+
+.about .brand {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 29px;
+}
+.about .about-text {
+   display: block;
+width: 427px;
+height: 180px;
+color: #898989;
+font-family: Lato;
+font-size: 14px;
+font-weight: 300;
+line-height: 24px;
+letter-spacing: 0.35px;
+text-align: justify;
+}
+.about .about-text p {
+    display: block;
+}
+.about .about-text p:first{
+    margin-bottom: 23px;
+}
+.promo-bottom ul {
+    list-style-type: none;
+}
+.menu-company h3,
+.menu-information h3,
+.menu-shop-category h3 {
+    color: #f16d7f;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 14px;
+    margin-top: 123px;
+    margin-bottom: 45px;
+}
+
+.menu-company {
+    margin-right: 129px;
+}
+
+.content-bottom {
+    height: 100%;
+    display: flex;
+}
+
+.menu-information {
+    margin-right: 80px;
+}
+
+.menu-company li a, 
+.menu-information li a, 
+.menu-shop-category li a {
+    /* Style for "Home  Shop" */
+
+color: #898989;
+font-size: 16px;
+font-weight: 400;
+letter-spacing: 0.4px;
+line-height: 59px;
+letter-spacing: 0.4px;
+line-height: 42px;
 }
