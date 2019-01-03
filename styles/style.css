@@ -2379,3 +2379,10 @@ section.recomended .product-container .product{
     margin-top: 0;
     margin-right: 32px;
 }
+
+.email-form input:invalid,
+#email-address:invalid {
+
+    border: 1px solid;
+    border-color: red;
+}
