@@ -1,0 +1,160 @@
+@import "variables"
+@import "mixins"
+
+.container
+  .checkout-element
+    border-bottom: $minBorder-width solid $color-promoBg
+
+    .header
+      height: 72px
+      display: flex
+      +editedFlex(unset, center)
+      cursor: pointer
+
+      h3
+        color: $colorBlack
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+
+    .element-content
+      height: 400px
+      +editedFlex(space-around, usnet)
+
+    h3
+      height: 11px
+      color: $colorBlack
+      font-size: 13px
+      font-weight: 600
+      text-transform: $textTransform
+
+    h5
+      color: #b3b2b2
+      font-size: 13px
+      font-weight: 400
+      margin-top: 15px
+
+    form
+      height: 342px
+      width: 45%
+
+      &.register-form
+        .radio-buttons
+          margin: 32px 0
+          display: flex
+          flex-direction: column
+
+          .radio-input
+            position: relative
+
+            input
+              width: 14px
+              height: 14px
+              border: 2px solid #555555
+              background-color: $colorWhite !important
+              cursor: pointer
+
+            label
+              cursor: pointer
+              color: $colorBlack
+              font-size: 12px
+              font-weight: 600
+              text-transform: $textTransform
+              position: absolute
+              top: 2px
+              left: 28px
+
+        .helpers
+          margin-top: 23px
+
+          h5
+            cursor: pointer
+            i
+              margin-right: 4px
+
+      &.login-form
+        .forgot-psswd
+          color: $colorBlack
+          font-size: 14px
+          font-weight: 400
+          line-height: 14px
+
+          &:hover
+            color: $colorPink
+        .input-block
+          margin-top: 27px
+
+          label
+            display: block
+            color: $colorBlack
+            font-size: 12px
+            font-weight: 600
+            line-height: 12px
+            text-transform: $textTransform
+
+            span
+              color: #ff0d0d
+              font-size: 17px
+              font-weight: 400
+              line-height: 17px
+              margin-left: 3px
+
+          input
+            width: 390px
+            height: 45px
+            border: 1px solid #eaeaea
+            background-color: $colorWhite
+            padding: 0 15px
+            margin-top: 16px
+            margin-bottom: 9px
+
+            &:invalid
+              border: $minBorder-width solid
+              border-color: red
+              box-sizing: border-box
+
+        .required-info
+          color: #ff0d0d
+          font-size: 13px
+          font-weight: 600
+          line-height: 13px
+
+        .buttons
+          margin-top: 32px
+          +editedFlex(unset,center)
+
+
+          .btn
+            margin-top: 0
+            margin-right: 32px
+
+    .btn
+      display: block
+      border: $minBorder-width solid #eaeaea
+      background-color: $colorWhite
+      margin-top: 38px
+      padding: 15px 0
+      width: 180px
+      text-align: center
+      color: #4a4a4a
+      font-size: 14px
+      font-weight: 700
+      text-transform: $textTransform
+
+      &:hover
+        background-color: $colorPink
+        color: $colorWhite
+
+    &.selected
+      border-bottom: $minBorder-width solid $color-promoBg
+
+
+
+
+
+
+
+
+
+
+
