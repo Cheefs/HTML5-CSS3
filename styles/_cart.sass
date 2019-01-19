@@ -27,6 +27,7 @@
         height: 115px
         background-color: rgba(101, 169, 200, 0.09)
         background-color: #d1d1d1
+        transition: 0.5s
 
         .photo
           height: 100%
@@ -57,7 +58,8 @@
             margin-left: 10px
 
       &:hover a
-        filter: brightness(60%)
+        transform: scale(1.2) translate(11px,-6px)
+        box-shadow: #ddd 1px 1px 2px 2px
 
     .buing-info
       display: flex
@@ -75,6 +77,7 @@
           color: #c0c0c0
           font-size: 16px
           text-transform: $textTransform
+          transition: 0.2s
 
           &:hover
             color: $colorPink-hover
@@ -91,8 +94,6 @@
         padding: 0 10px
         color: #656565
 
-
-
 .cart-form-container
   margin-top: 44px
 
@@ -100,7 +101,7 @@
     display: flex
     justify-content: space-between
 
-    a
+    .top-block-a
       color: #4a4a4a
       font-size: 14px
       font-weight: 700
@@ -109,9 +110,10 @@
       padding: 16px 28px
       border: 1px solid $colorWhite-2
       background-color: $colorWhite
+      transition: 0.2s ease
 
       &:hover
-        background-color: $colorPink-hover
+        background-color: $colorPink
         color: $colorWhite
 
   .cart-bottom-block
@@ -163,26 +165,44 @@
         background-color: $colorPink-hover
         color: $colorWhite
 
+  .cart-bottom-block-a
+    display: block
+    color: #4a4a4a
+    font-size: 11px
+    font-weight: 700
+    text-transform: uppercase
+    border: 1px solid #eaeaea
+    background-color: #ffffff
+    padding: 10px
+    margin-top: 23px
+    width: 90px
+    transition: 0.6s
+
+    &:hover
+      background-color: #f16d7f
+      color: #ffffff
+
   .discount-block
     width: 355px
-    a
+
+    .cart-bottom-block-a
       display: block
       color: #4a4a4a
       font-size: 11px
       font-weight: 700
       text-transform: uppercase
-      width: 75px
       border: 1px solid #eaeaea
       background-color: #ffffff
       padding: 10px
       margin-top: 23px
       width: 90px
+      transition: 0.6s
 
       &:hover
         background-color: #f16d7f
         color: #ffffff
 
-    h3
+    .discount-block-h3
       margin-top: 63px
       color: #222222
       font-size: 16px
@@ -190,7 +210,7 @@
       text-transform: uppercase
       margin-bottom: 22px
 
-    input
+    .discount-block-input
       margin-top: 20px
       width: 327px
       border: 1px solid #eaeaea
@@ -231,7 +251,7 @@
       height: 65px
       text-align: right
 
-    a
+    .total-payment-a
       width: 273px
       text-align: center
       padding: 18px 0
@@ -240,8 +260,14 @@
       font-weight: 700
       line-height: 16px
       text-transform: $textTransform
-      background-color: $colorPink-hover
+      background-color: $colorPink
       display: block
       margin: 10px auto
+      transition: 0.4s
+      box-sizing: border-box
+      border: 1px solid transparent
+
       &:hover
-        background-color: #e3455afc
+        color: $colorPink-hover
+        background-color: $colorWhite
+        border: 1px solid $colorPink-hover

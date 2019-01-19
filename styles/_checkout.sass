@@ -8,14 +8,21 @@
     .header
       height: 72px
       display: flex
+      transition: 1s
       +editedFlex(unset, center)
       cursor: pointer
 
-      h3
+      .header-h3
         color: $colorBlack
         font-size: 16px
         font-weight: 700
         text-transform: uppercase
+
+    .checkout-content
+      opacity: 0
+      height: 0
+      padding: 0 50px
+      transition: 0.5s
 
     .element-content
       height: 400px
@@ -27,6 +34,7 @@
       font-size: 13px
       font-weight: 600
       text-transform: $textTransform
+      transition: 1s
 
     h5
       color: #b3b2b2
@@ -47,14 +55,14 @@
           .radio-input
             position: relative
 
-            input
+            .radio-input
               width: 14px
               height: 14px
               border: 2px solid #555555
               background-color: $colorWhite !important
               cursor: pointer
 
-            label
+            .radio-label
               cursor: pointer
               color: $colorBlack
               font-size: 12px
@@ -67,9 +75,9 @@
         .helpers
           margin-top: 23px
 
-          h5
+          .helpers-h5
             cursor: pointer
-            i
+            .fas
               margin-right: 4px
 
       &.login-form
@@ -84,7 +92,7 @@
         .input-block
           margin-top: 27px
 
-          label
+          .input-block-label
             display: block
             color: $colorBlack
             font-size: 12px
@@ -92,14 +100,14 @@
             line-height: 12px
             text-transform: $textTransform
 
-            span
+            .label-span
               color: #ff0d0d
               font-size: 17px
               font-weight: 400
               line-height: 17px
               margin-left: 3px
 
-          input
+          .input-block-input
             width: 390px
             height: 45px
             border: 1px solid #eaeaea
@@ -140,6 +148,7 @@
       font-size: 14px
       font-weight: 700
       text-transform: $textTransform
+      transition: 0.5s
 
       &:hover
         background-color: $colorPink
@@ -148,13 +157,16 @@
     &.selected
       border-bottom: $minBorder-width solid $color-promoBg
 
+    &:hover
+      background-color: #dddddd5e
+      color: red
 
+    &:hover .header .header-h3
+      transform: translate(443px)
+      display: block
+      color: $colorPink
 
-
-
-
-
-
-
-
-
+    &:hover .checkout-content
+      color: $colorGray-middle
+      height: 473px
+      animation: checkout-content 1s linear forwards
