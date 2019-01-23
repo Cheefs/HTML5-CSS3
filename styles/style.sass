@@ -1,5 +1,6 @@
 @import "variables"
 @import "mixins"
+@import "animations"
 
 *
   margin: 0
@@ -22,8 +23,11 @@ nav
 .container
   +container($containerWidth, $autoMargins)
 
+
 .logo
   +flexContainer()
+  &:hover
+    animation: logo-animation 1s  linear forwards
 
 .triangleMainStyles
   width: 7px
@@ -62,8 +66,14 @@ header
       background-color: $colorPink
       padding: 9px 23px
       border-radius: 3px
+      transition: 0.3s ease-in-out
+      box-sizing: border-box
+      border: 1px solid transparent
+
       &:hover
-        background-color: $colorPink-hover
+        border-color: $colorGray-dark
+        color: $colorBlack
+        background-color: $colorWhite
 
     .triangle
       z-index: 11
@@ -97,9 +107,9 @@ header
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08)
       z-index: 10
 
-      .item-photo
-        &:hover
-          filter: brightness(50%)
+      //.item-photo
+      //  &:hover
+      //    filter: brightness(50%)
 
       .btn-remove-item
         i
@@ -126,14 +136,17 @@ header
           font-size: 14px
           font-weight: 700
           text-transform: $textTransform
+          background-color: $colorWhite
+
+          transition: 0.4s
 
         .btn-to-cart
           display: block
           margin-top: 11px
           border: 1px solid #eaeaea
-          background-color: $colorWhite
+
           color: #4a4a4a
-            
+
           &:hover
             color: white
             background-color: #bebebf
@@ -141,12 +154,10 @@ header
         .btn-check-out
           margin-top: 32px
           border: 1px solid $colorPink
-          background-color: $colorWhite
           color: $colorPink
           &:hover
             background-color: $colorPink
             color: white
-
 
       &:before
         @extend .triangleMainStyles
@@ -168,8 +179,10 @@ header
           border-bottom: solid $minBorder-width #ededed
 
           .item-photo
+            transition: 1s
             &:hover
-              filter: brightness(75%)
+              transform: skew(-3deg)
+              box-shadow: $colorGray-middle 1px 1px 20px 0
           .item-container
             width: 144px
             display: flex
@@ -221,6 +234,11 @@ header
       left: 48px
       letter-spacing: 0.3px
 
+      animation: cart-count 3s infinite
+
+
+
+
   .header-left
     +flexContainer()
     .header-form
@@ -245,34 +263,38 @@ header
         background-color: #cdcdcc
         background-image: linear-gradient(to bottom, #f9f9f9 0%, #f5f5f5 100%)
 
-        .browse
-          position: relative
-          display: block
-          border-right: 1px solid #ddd
-          padding: 11px 23px 11px 15px
-          font-size: 14px
-          border-radius: 3px 0 0 3px
-          font-weight: 500
-          letter-spacing: 0.35px
+        .browse-container
+          &:hover .browse-items
+            display: block
+          &:hover .browse
+            background-color: #83838352
 
-          &:after
-            content: ""
-            border: 4px solid transparent
-            border-top: 4px solid #a4a4a4
-            position: absolute
-            top: 18px
-            margin-left: 8px
-            color: #838383
+          &:hover .browse:after
+            border-top-color: $colorWhite
 
-        &:hover
-          background-color: #838383
+          .browse
+            position: relative
+            display: block
+            border-right: 1px solid #ddd
+            padding: 11px 23px 11px 15px
+            font-size: 14px
+            border-radius: 3px 0 0 3px
+            font-weight: 500
+            letter-spacing: 0.35px
+            transition: 0.5s
 
-        &:hover span
-          color: $colorPink
+            &:hover
+              color: $colorWhite
 
-        &:hover &:after
-          border-top-color: $colorPink
-
+            &:after
+              content: ""
+              border: 4px solid transparent
+              border-top: 4px solid #a4a4a4
+              position: absolute
+              top: 18px
+              margin-left: 8px
+              color: #838383
+              transition: 1s
       .find-btn
         display: block
         border-radius: 0 3px 3px 0
@@ -280,19 +302,20 @@ header
         color: #a4a4a4
         font-size: 14px
         font-weight: 400
+        transition: 0.5s
 
         .fa-search
           padding: 12px 10px
 
         &:hover
-          color: $colorPink
+          color: $colorWhite
           background-color: #ccc6c654
 
         .browse-menu li a:hover
           color:  $colorPink
 
-.browse-container:hover .browse-items
-  display: block
+
+
 
 .browse-items
   z-index: 1
@@ -330,7 +353,7 @@ header
       font-size: 14px
       font-weight: 400
       letter-spacing: 0.35px
-      
+
     .browse-menu-li
       list-style-type: none
       color: $colorGray
@@ -392,6 +415,11 @@ header
       background: url('../images/mega-menu-img.jpg')
       font-weight: 600
       +editedFlex( flex-end, flex-end )
+      transition: 1s
+
+      &:hover
+        transform: scale(0.9)
+        box-shadow: $colorGray-middle 1px 1px 10px 10px
 
       span
         display: block
@@ -444,6 +472,9 @@ header
     background-image: url('../images/promo.jpg')
     height: 613px
     background-position-y: -52px
+    transition: 1s ease
+    &:hover
+      transform: scale(0.9) translate(0,32px)
 
   & .promo-text
     float: left
@@ -465,6 +496,9 @@ header
       span
         color: $colorPink
 
+
+
+
 .container
   .body-content
     .content-hot
@@ -475,8 +509,12 @@ header
       height: 823px
       margin-top: 98px
 
-      & a:hover
-        filter: brightness(75%)
+      a
+        transition: 1s
+
+        &:hover
+          filter: brightness(75%)
+          transform: scale(1.05)
 
       .text
         width: 135px
@@ -566,6 +604,7 @@ header
           .item
             display: block
             width: 261px
+            transition: 0.6s
 
             .item-photo
               height: 280px
@@ -588,8 +627,10 @@ header
               font-weight: 700
               text-transform: $textTransform
 
-          &:hover a
+          &:hover .item
             box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+            transform: scale(1.02) translate(10px, 0)
+
           &:hover .to-cart
             display: block
           &:hover .item .item-photo
@@ -608,9 +649,12 @@ header
           font-weight: 700
           line-height: 39px
           text-align: center
+          transition: 0.6s
 
           &:hover
             background: #ffffff5e
+            transform: scale(1.1) translate(2px)
+
           .cart
             right: 5px
             top: 5px
@@ -627,8 +671,10 @@ header
         font-weight: 700
         line-height: 54px
         padding: 14px 35px
+        transition: 1s
 
       & a:hover
+        padding: 14px 100px
         background-color: $colorPink-hover
 
     .info-container
@@ -645,19 +691,31 @@ header
           display: block
           width: 767px
           height: 100%
-          background: url('../images/info.jpg')
+          background: url(../images/info.jpg)
+          transition: 1s
+          box-sizing: border-box
 
           &:hover
-            filter: brightness(75%)
+            box-shadow: #ffffff47 1px 1px 5px 5px
+            transform: scale(0.98)
+
+          &:hover .info-text
+            transform: scale(1.2) translate(60px, 37px)
+
+          &:hover .info-text h2
+              color: $colorWhite
 
           .info-text
             margin-top: 146px
             margin-left: 39px
+            transition: 2s
 
             h1
               color: $colorWhite
               font-weight: 900
               font-size: 32px
+              transition: 1s
+
             h2
               font-size: 32px
             span
@@ -733,6 +791,12 @@ header
             display: block
             width: 83px
             height: 83px
+            border-radius: 50%
+            transition: 2s
+
+            &:hover
+              transform: scale(1.2)
+              box-shadow: #a4a4a4 1px 1px 3px 3px
 
           .user-comment
             width: 386px
@@ -752,6 +816,10 @@ header
               margin-top: 19px
               font-size: 12px
               font-weight: 500
+              transition: 1s
+
+              &:hover a
+                color: $colorPink-hover
 
               a
                 display: block
@@ -822,8 +890,10 @@ header
             width: 104px
             height: 46px
             border-radius: 0 23px 23px 0
-            background-color: $colorPink
+            background-color: #f16d7f
             border: navajowhite
+            transition: 0.6s
+            box-sizing: border-box
 
             &:hover
               background-color: $colorPink-hover
@@ -835,9 +905,6 @@ header
               font-size: 14px
               font-weight: 400
               letter-spacing: 0.35px
-
-
-
 
 
 .promo-bottom
@@ -858,42 +925,51 @@ header
       margin-right: 64px
       margin-top: 109px
 
-      .brand
-        +editedFlex(flex-start, unset)
-        margin-bottom: 29px
+      .logo
+        width: 164px
 
       .about-text
         display: block
         width: 427px
-        height: 180px
         color: #898989
         font-size: 14px
         font-weight: 300
         line-height: 24px
         letter-spacing: 0.35px
         text-align: justify
+        margin-top: 29px
 
-        p
+        .about-text-p
           display: block
           margin-bottom: 20px
-    nav
-      display: flex
 
-      .menu-company
-        margin-right: 129px
-      .menu-information
-        margin-right: 80px
+    .content-bottom-nav
+      display: flex
+      width: 100%
+      justify-content: space-between
+
+      .nav-menu
+        padding: 0 20px
+
+      //.menu-company
+      //  margin-right: 129px
+      //.menu-information
+      //  margin-right: 80px
 
       li
         a
+          display: block
           color: #898989
           font-size: 16px
           font-weight: 400
           letter-spacing: 0.4px
           line-height: 42px
+          transition: 0.5s
 
           &:hover
             color: $colorPink
+            transform: scale(1.2)
+            //font-weight: 600
 
       h3
         color: $colorPink
@@ -933,6 +1009,10 @@ footer
         height: 32px
         width: 32px
         background-color: $colorWhite
+        transition: 8s
+
+        &:hover
+          transform: rotateZ(360deg)
 
         i
           +editedFlex(center,center)
@@ -941,7 +1021,8 @@ footer
           font-size: 16px
           font-weight: 400
           line-height: 42px
-          letter-spacing: 0.4px
+          letter-spacing: 1.4px
+          transition: 0.5s
 
         &:hover i
           background: $colorPink
